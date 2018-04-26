@@ -26,7 +26,7 @@
             <ul class="nav navbar-nav">
                 <!-- Authentication Links -->
                 <li><a href="#">section1</a></li>
-                <li><a href="#">section2</a></li>
+                <li><a href="{{ route('message') }}">留言</a></li>
             </ul>
         </div>
     </div>
