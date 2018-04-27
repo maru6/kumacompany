@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
-class MessageRequest extends Request
+use Illuminate\Foundation\Http\FormRequest;
+
+class MessageRequest extends FormRequest
 {
 
     public function rules()
@@ -15,15 +17,15 @@ class MessageRequest extends Request
             'phone' => 'between:8,15',
             'fax' => 'max:10',
             'email' => 'required|email',
-            'content' => 'min:20',
+            'content' => 'min:20'
         ];
     }
 
     public function message()
     {
         return [
-            // 'company_name.between' => '请填写正确公司名称不小于2个字符',
-            // 'address.between' => '请填写正确'
+            'company_name.between' => '请填写正确公司名称不小于2个字符',
+            // 'address.between' => '请填写正确',
             // 'deployment' =>
             // 'responsible_name' =>
             // 'phone' =>
