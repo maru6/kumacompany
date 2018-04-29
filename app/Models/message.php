@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
+
 class Message extends Model
 {
-    protected $fillable = ['company_name','address', 'deployment'];
+    protected $fillable = ['company_name'];
 
 
     // 'company_name.between' => '请填写正确公司名称不小于2个字符',

@@ -7,6 +7,12 @@ use Illuminate\Foundation\Http\FormRequest;
 class MessageRequest extends FormRequest
 {
 
+    public function authorize()
+    {
+    	// Using policy for Authorization
+        return true;
+    }
+
     public function rules()
     {
         return [
