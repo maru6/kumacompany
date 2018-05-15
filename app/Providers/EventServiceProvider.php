@@ -17,6 +17,11 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\EventListener',
         ],
     ];
+    // protected $listen = [
+    //     'Illuminate\Mail\Events\MessageSending' => [
+    //         'App\Listeners\LogSentMessage',
+    //     ],
+    // ];
 
     /**
      * Register any events for your application.

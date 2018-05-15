@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
+use Auth;
 
 class MessageRequest extends FormRequest
 {
@@ -16,7 +18,7 @@ class MessageRequest extends FormRequest
     public function rules()
     {
         return [
-            'company_name' => 'between:2,30',
+            'company_name' => 'required|between:2,30',
             'address' => 'between:8,80',
             'deployment' => 'between:2,20',
             'responsible_name' => 'between:3-15',
@@ -27,7 +29,7 @@ class MessageRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
             'company_name.between' => '请填写正确公司名称不小于2个字符',

@@ -2,24 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Message;
 use Illuminate\Http\Request;
-use App\Http\Requests\MessageRequest;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderShipped;
 
 class MessagesController extends Controller
 {
+    public $validatedData;
+
+    public function __construct()
+    {
+  
+    }
 
     public function message()
     {
         return view('message');
     }
 
-    public function store(MessageRequest $request, Message $message)
+    public function store(Request $request)
     {
-        $message->fill($request->all());
-        $message->save();
+        $text = $request->validate([
+                'company_name' => 'required|min:3'
+            ]);
 
-        return view('message');
+
+        $name = 'urara';      
+        $to = 'dnakv321@163.com';
+        Mail::to($to)->send(new OrderShipped($name, $text));
+
+        return dd($text);
     }
+
+    // public function MessageNotification()
+    // {
+
+    //     $name = 'uraratarou';
+    //     $text = $validatedData;
+    //     $to = 'dnakv321@163.com';
+    //     Mail::to($to)->send(new OrderShipped($name, $text));
+    // }
 
 }

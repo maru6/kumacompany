@@ -10,6 +10,16 @@
 
                 <hr>
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <!-- @include('common.error') -->
 
                     <form action="{{ route('messages.store') }}" method="POST" accept-charset="UTF-8">
@@ -19,6 +29,8 @@
                     <div class="form-group">
                         <input class="form-control" type="text" name="company_name" value="{{ old('company_name') }}" placeholder="请填写公司名称" required/>
                     </div>
+
+
                     <!-- <div class="form-group">
                         <input class="form-control" type="text" name="company_name" value="{{ old('address') }}" placeholder="请填写公司名称" required/>
                     </div>
