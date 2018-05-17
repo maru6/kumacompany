@@ -10,6 +10,7 @@ class MessagesController extends Controller
 {
     public $validatedData;
 
+
     public function __construct()
     {
   
@@ -22,11 +23,11 @@ class MessagesController extends Controller
 
     public function store(Request $request)
     {
-        $text = $request->validate([
+         $validatedData = $request->validate([
                 'company_name' => 'required|min:3'
             ]);
 
-
+        $text = json_encode($validatedData);
         $name = 'urara';      
         $to = 'dnakv321@163.com';
         Mail::to($to)->send(new OrderShipped($name, $text));

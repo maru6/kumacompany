@@ -12,7 +12,7 @@ class OrderShipped extends Mailable
     use Queueable, SerializesModels;
 
     protected $title;
-    protected $text;
+    public $text;
 
     /**
      * Create a new message instance.
